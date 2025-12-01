@@ -60,7 +60,7 @@ Ver el script `01_Analisis_Confiabilidad.R` para la lista exacta de dependencias
 ### Opción A: vía GitHub
 
 1. Clonar este repositorio:
-        bash git clone <https://github.com/USUARIO/REPO-CONFIABILIDAD.git>
+        bash git clone <https://github.com/Luccat1/PaperMillonEtAl>
 2. Abrir el proyecto en RStudio (o entorno equivalente).
 3. Verificar/instalar los paquetes listados en `01_Analisis_Confiabilidad.R`.
 4. Ejecutar el script principal:
@@ -101,8 +101,7 @@ Si reutiliza estos datos o scripts, por favor cite:
 ## Enlaces
 
 - OSF: [https://osf.io/nyqj8/](https://osf.io/nyqj8/overview)
-- GitHub: <https://github.com/USUARIO/REPO-CONFIABILIDAD>
- <!-- Reemplazar -->
+- GitHub: [https://github.com/Luccat1/PaperMillonEtAl](https://github.com/Luccat1/PaperMillonEtAl)
 
 ---
 
