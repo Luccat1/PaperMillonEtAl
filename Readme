@@ -1,0 +1,117 @@
+# Análisis de confiabilidad interevaluador en la codificación de entrevistas
+
+Este repositorio contiene los datos derivados y los scripts de análisis utilizados para calcular la confiabilidad interevaluador en un estudio cualitativo basado en entrevistas semiestructuradas.
+
+El foco principal es la evaluación de la consistencia en la aplicación de un sistema de códigos temáticos por parte de dos analistas, utilizando:
+
+- Kappa de Cohen por código
+- Índices de prevalencia y sesgo + PABAK
+- Resúmenes por familias de códigos
+- (Exploratoriamente) alfa de Krippendorff nominal global
+
+El artículo asociado tiene un **enfoque principalmente cualitativo**; estos análisis cuantitativos se utilizan para documentar la consistencia del sistema de codificación.
+
+---
+
+## Estructura del repositorio
+
+- `data/`
+  - `INE_VE_PresenciaBinaria.csv`  
+    Matriz binaria de presencia/ausencia (0/1) por unidad de análisis (respuesta a cada pregunta), codificadora y código.
+  - `Reporte_Confiabilidad.csv`  
+    Resumen por código con κ de Cohen, acuerdo observado (Po) y acuerdo esperado (Pe).
+  - `Reporte_Kappa_Extendido.csv`  
+    Resumen ampliado por código: κ, Po, Pe, índices de prevalencia y sesgo, PABAK e intervalos de confianza.
+  - `Resumen_Familias.csv`  
+    Estadísticos de κ agregados por familias/dimensiones axiales del sistema de códigos.
+
+- `R/`
+  - `01_Analisis_Confiabilidad.R`  
+    Script principal. Importa los datos, construye las tablas de contingencia, calcula κ, PI, BI, PABAK, alfa de Krippendorff y genera las tablas de salida.
+  - (Opcional) Otros scripts auxiliares, por ejemplo:
+    - `00_Preparacion_Datos.R` (limpieza/formateo desde matrices crudas)
+    - `02_Figuras_Confiabilidad.R` (gráficos para el informe)
+
+- `output/` (generado al ejecutar los scripts)
+  - Tablas y gráficos utilizados en el informe de confiabilidad (por ejemplo, en formato `.csv`, `.rds`, `.png` o `.pdf`).
+
+- `README.md`
+  Este archivo.
+
+---
+
+## Requisitos de software
+
+- **R** (≥ 4.x)
+- Paquetes principales (pueden variar según la versión del script):
+  - `tidyverse`
+  - `readr` / `readxl`
+  - `irr`
+  - `krippendorff` (u otro paquete equivalente para α)
+  - `boot` (para intervalos de confianza por bootstrap)
+  - `ggplot2` (para visualizaciones)
+
+Ver el script `01_Analisis_Confiabilidad.R` para la lista exacta de dependencias y la llamada a `sessionInfo()` al final.
+
+---
+
+## Reproducibilidad
+
+### Opción A: vía GitHub
+
+1. Clonar este repositorio:
+        bash git clone <https://github.com/USUARIO/REPO-CONFIABILIDAD.git>
+2. Abrir el proyecto en RStudio (o entorno equivalente).
+3. Verificar/instalar los paquetes listados en `01_Analisis_Confiabilidad.R`.
+4. Ejecutar el script principal:
+`source("R/01_Analisis_Confiabilidad.R")`
+5. Los resultados (tablas/resúmenes/gráficos) se guardarán en la carpeta output/ y/o se imprimirán en la consola.
+
+### Opción B: vía OSF
+
+1. Descargar el paquete completo de OSF:
+OSF: [https://osf.io/nyqj8/](https://osf.io/nyqj8/overview)
+2. Descomprimir el contenido en una carpeta local.
+3. Abrir el proyecto en RStudio apuntando al directorio raíz.
+4. Ejecutar `R/01_Analisis_Confiabilidad.R` como se indica arriba.
+
+Todos los scripts están comentados de manera que se puedan seguir los pasos de importación, transformación y cálculo.
+
+---
+
+## Datos
+
+Los archivos en data/ contienen únicamente datos derivados de la codificación (presencia/ausencia de códigos por unidad), sin información de identificación directa de las personas entrevistadas.
+
+Las entrevistas originales y versiones no anonimizadas no se incluyen en este repositorio y solo están disponibles bajo las condiciones establecidas por el comité de ética de la Pontificia Universidad Católica de Valparaíso ([bioetica@pucv.cl](mailto:bioetica@pucv.cl)).
+
+---
+
+## Cómo citar
+
+Si reutiliza estos datos o scripts, por favor cite:
+
+- El artículo asociado (cuando esté publicado).
+- Este repositorio de OSF/GitHub, por ejemplo:
+
+> Autor/es. (Año). Confiabilidad interevaluador en la codificación de entrevistas [Repositorio de datos y código]. OSF / GitHub. DOI / URL
+
+---
+
+## Enlaces
+
+- OSF: [https://osf.io/nyqj8/](https://osf.io/nyqj8/overview)
+- GitHub: <https://github.com/USUARIO/REPO-CONFIABILIDAD>
+ <!-- Reemplazar -->
+
+---
+
+## Contacto
+
+Para consultas sobre los datos, los scripts o la interpretación de los resultados de confiabilidad:
+
+- Luciano Cataldo Alvarado
+- [luciano.cataldo@pucv.cl](mailto:luciano.cataldo@pucv.cl)
+- [lcataldoalvarado@gmail.com](mailto:lcataldoalvarado@gmail.com)
+
+Por favor indique en el asunto del correo que se trata de dudas sobre el análisis de confiabilidad de este proyecto.
